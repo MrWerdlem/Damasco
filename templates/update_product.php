@@ -10,9 +10,9 @@ $id = $_GET['id'];
 if(isset($_POST['add'])){
     //form submitted
     $product = $_POST['product'];
-    $notes = $_POST['notes'];
+    $notes = nl2br($_POST['notes']);
 	$quantity = $_POST['quantity'];
-	$description = $_POST['description'];
+	$description = nl2br($_POST['description']);
 	
 
         //update Product
@@ -38,7 +38,7 @@ if(isset($_POST['add'])){
         <span id="notesInfo"></span> </div>
       <div>
         <label for="notes">Notes</label>
-        <input id="notes" name="notes" type="text" class="form-control" value="<?php echo $productDetail['notes']; ?>"/>
+        <textarea id="notes" name="notes" type="text" class="form-control" rows="2"> <?php echo  str_replace('<br />',"",$productDetail['notes']); ?></textarea>
       </div>
       <div>
         <label for="notes">Last Ordered</label>
@@ -50,7 +50,7 @@ if(isset($_POST['add'])){
       </div>
       <div>
         <label for="description">Description</label>
-        <input id="description" name="description" type="text" class="form-control" value="<?php echo $productDetail['description']; ?>"/>
+        <textarea id="description" name="description" type="text" class="form-control" rows="7"><?php echo str_replace('<br />',"", $productDetail['description']); ?></textarea>
       </div>
       <br/>
        <button id="add" class="btn btn-large btn-primary" name="add" type="submit">Update</button>

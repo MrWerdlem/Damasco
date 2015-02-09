@@ -68,14 +68,12 @@ if(isset($_POST['doSearch'])){
 ?>
 <?php if (!isset($_POST['doSearch']) || $_POST['doSearch']) { ?>
 <div class="panel panel-primary">
-<div class="panel panel-heading">
-  <h3>Search Results</h3>
-</div>
-<div class="panel-body">
+<div class="panel panel-heading"><h3>Search Results</h3></div>
+<div class="panel-body" style="margin-top:-20px">
 <?php foreach ($Search as $result){ 
-	  echo "<div style='border-bottom: 1px dashed #777; padding-bottom:5px; margin-bottom:5px; width:100%; float:left'> "?>
+	  echo "<div style='border-bottom: 1px dashed #777; padding-bottom:5px; margin-bottom:10px; width:100%; float:left'> "?>
       
-      <div class="alert alert-success" role="alert" style="width:40%; float:right; height:85px; font-size:46px; color:#C00; text-align:center"><?php echo $result['location'];?></strong></div>
+      <div class="alert alert-info" role="alert" style="width:40%; float:right; height:85px; font-size:46px; color:#C00; text-align:center"><?php echo $result['location'];?></strong></div>
  
 
 <p>Product: <a href="?action=update_product&id=<?php echo $result['product']; ?>&p_id=<?php echo $result['product_id']; ?>"><?php echo $result['product'];?></a>
@@ -93,7 +91,7 @@ if(isset($_POST['doSearch'])){
 				if ($result['id']>0){ 
 				echo "<a href='?action=add_product&id=".$result['id']."'>Assign</a>";}
 				else{ 
-				echo "<a href='?action=product_detail&l_id=".$result['product']."'style='color:red'>assign</a> ";
+				//echo "<a href='?action=product_detail&l_id=".$result['product']."'style='color:red'>assign</a> ";
 				}
 				?>
 </p>

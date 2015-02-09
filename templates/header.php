@@ -28,7 +28,7 @@
                     <li><a href="?action=aisles&Aisle=2">Aisles</a></li>
                     
                  
-                    <li><a href="?action=update_location&id=12698">Stock Control</a></li>
+                    <li><a href="#" class="disabled">Stock Control</a></li>
                     <li><a href="#">Contact</a></li>
                   </ul>
                 </div> 
