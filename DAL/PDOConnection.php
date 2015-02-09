@@ -124,7 +124,8 @@ class products{
 		id = :id');
 		$stmt->bindValue(':stmt', $location);
 		$stmt->bindValue(':id', $location_id);
-		$stmt->execute();		
+		$stmt->execute();
+		echo '<div class="alert alert-success" role="alert">Product Successfully updated to Location</div>';		
 		}
 		
 	public function GetAisleSort($Aisle){
@@ -328,7 +329,8 @@ class products{
 			$stmt = $pdo->prepare('select *
 			from order_history
 			where product_id
-			like :stmt');
+			like :stmt
+			order by date desc limit 8');
 			$stmt->bindValue(':stmt', $id);
 			$stmt->execute();
 			if($stmt->rowCount()>0) {

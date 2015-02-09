@@ -8,9 +8,11 @@ $isEditing = isset($_GET['id']);
 
 if(isset($_POST['add'])){
    $result = $_POST['location'];
+   		$product = $_POST['product'];
 		$product_id = $_POST['product_id'];
         $productDal->UpdateLocation($product_id, $result);
-		header("location: ?action=search");	
+		header("location:?action=update_product&id=".$product."&p_id=".$product_id);
+		echo '<div class="alert alert-success" role="alert">Product Successfully updated to Location</div>';	
 }
 
 if ($_GET['p_id']==''){
@@ -47,7 +49,7 @@ foreach($id as $productDetail){
           action="?action=update_location&<?php echo ($isEditing ? "?id=$id" : ""); ?>">
         <div>
             <label for="product">Product</label>
-            <input id="product" class="form-control" name="location" type="text" readonly  value="<?php echo $productDetail['product']; ?>"/>
+            <input id="product" class="form-control" name="product" type="text" readonly  value="<?php echo $productDetail['product']; ?>"/>
             <input id="product_id" name="product_id" type="hidden" readonly  value="<?php echo $productDetail['product_id']; ?>"/>
             <span id="productInfo"></span>
         </div>

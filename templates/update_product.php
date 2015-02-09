@@ -6,8 +6,9 @@ $productDal = new products();
 
 
 $id = $_GET['id'];
+$p_id = $_GET['p_id'];
 
-if(isset($_POST['add'])){
+if(isset($_POST['update'])){
     //form submitted
     $product = $_POST['product'];
     $notes = nl2br($_POST['notes']);
@@ -17,7 +18,7 @@ if(isset($_POST['add'])){
 
         //update Product
         $productDal->UpdateProduct($id,$product,$notes,$quantity,$description);
-		header("location: index.php");
+		header("location:?action=update_product&id=".$product."&p_id=".$p_id);
 }
 	
 
@@ -36,7 +37,7 @@ if(isset($_POST['add'])){
         <span id="notesInfo"></span> </div>
       <div>
         <label for="notes">Notes</label>
-        <textarea id="notes" name="notes" type="text" class="form-control" rows="2"> <?php echo  str_replace('<br />',"",$productDetail['notes']); ?></textarea>
+        <textarea id="notes" name="notes" type="text" class="form-control" rows="2"><?php echo  str_replace('<br />','',$productDetail['notes']); ?></textarea>
       </div>
       <div>
         <label for="notes">Last Ordered</label>
@@ -48,10 +49,10 @@ if(isset($_POST['add'])){
       </div>
       <div>
         <label for="description">Description</label>
-        <textarea id="description" name="description" type="text" class="form-control" rows="7"><?php echo str_replace('<br />',"", $productDetail['description']); ?></textarea>
+        <textarea id="description" name="description" type="text" class="form-control" rows="8"><?php echo str_replace('<br />',"", $productDetail['description']); ?></textarea>
       </div>
       <br/>
-       <button id="add" class="btn btn-large btn-primary" name="add" type="submit">Update</button>
+       <button id="update" class="btn btn-large btn-primary" name="update" type="submit">Update</button>
     </form>
   </div>
 <?php }?>

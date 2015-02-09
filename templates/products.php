@@ -44,7 +44,7 @@ else
         
      <?php   if(isset($_POST['add'])){
 	
-$product = $_POST['product'];
+$product = strtoupper($_POST['product']);
 $notes = $_POST['notes'];
 $quantity = $_POST['quantity'];
 $description = $_POST['description'];
