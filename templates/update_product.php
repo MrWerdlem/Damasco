@@ -23,8 +23,6 @@ if(isset($_POST['add'])){
 
     $id = $productDal->GetProducts($id);
 	foreach($id as $productDetail){
-
-	
 		
 ?>
 
