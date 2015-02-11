@@ -28,12 +28,14 @@
                     <li><a href="?action=aisles&Aisle=2">Aisles</a></li>
                     
                  
-                    <li><a href="#" class="disabled">Stock Control</a></li>
+                    <li><a href="?action=location_list&id=41" class="disabled">Stock Control</a></li>
                     <li><a href="#">Contact</a></li>
                   </ul>
                 </div> 
                 </ul>
-                  
+                </div>
+                </div>
+         
   <!--
                     <li class="home"><a href="?action">Search</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">

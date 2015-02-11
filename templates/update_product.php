@@ -1,5 +1,7 @@
 <?php
 
+include 'search.php';
+
 require_once('DAL/PDOConnection.php');
 
 $productDal = new products();
@@ -12,7 +14,7 @@ if(isset($_POST['update'])){
     //form submitted
     $product = $_POST['product'];
     $notes = nl2br($_POST['notes']);
-	$quantity = $_POST['quantity'];
+	$quantity = nl2br($_POST['quantity']);
 	$description = nl2br($_POST['description']);
 	
 
@@ -36,28 +38,32 @@ if(isset($_POST['update'])){
         <input id="product" name="product" type="text" class="form-control" value="<?php echo $productDetail['product']; ?>"/>
         <span id="notesInfo"></span> </div>
       <div>
-        <label for="notes">Notes</label>
-        <textarea id="notes" name="notes" type="text" class="form-control" rows="2"><?php echo  str_replace('<br />','',$productDetail['notes']); ?></textarea>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" type="text" class="form-control" rows="1"><?php echo  str_replace('<br />','',$productDetail['description']); ?></textarea>
       </div>
       <div>
-        <label for="notes">Last Ordered</label>
-        <input id="last_prdered" name="last_ordered" type="text" class="form-control" readonly="readonly" value="<?php echo $productDetail['last_ordered']; ?>"/>
+        <label for="last_ordered">Last Ordered</label>
+        <input id="last_ordered" name="last_ordered" type="text" class="form-control" readonly="readonly" value="<?php echo $productDetail['last_ordered']; ?>"/>
       </div>
       <div>
         <label for="quantity">Quantity</label>
-        <input id="quantity" name="quantity" type="text" class="form-control" value="<?php echo $productDetail['quantity']; ?>"/>
+        <textarea id="quantity" name="quantity" type="text" class="form-control" rows="1"><?php echo str_replace('<br />',"", $productDetail['quantity']);?></textarea>
       </div>
       <div>
-        <label for="description">Description</label>
-        <textarea id="description" name="description" type="text" class="form-control" rows="8"><?php echo str_replace('<br />',"", $productDetail['description']); ?></textarea>
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" type="text" class="form-control" rows="8"><?php echo str_replace('<br />',"", $productDetail['notes']); ?></textarea>
       </div>
       <br/>
        <button id="update" class="btn btn-large btn-primary" name="update" type="submit">Update</button>
+       <a href="?action=test_send&product=<?php echo $productDetail['product'];?>&id=<?php echo $productDetail['product_id'];?>" class="btn btn-large btn-primary">Order</a>
     </form>
   </div>
 <?php }?>
 </div>
 
-<?php 
+<?php
+include 'location_list.php';
 include 'update_location.php';
-include 'order_history.php';
+include 'order_history.php'; 
+
+

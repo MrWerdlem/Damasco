@@ -12,7 +12,7 @@ require_once './DAL/PDOConnection.php';
 	width:49%;
 }
 </style>
-<div>
+
   <div class="panel panel-success" style="float:left">
     <div class="panel panel-heading">
       <h3 style="text-align:center">Product Search</h3>
@@ -32,8 +32,7 @@ require_once './DAL/PDOConnection.php';
     <div class="panel panel-heading">
       <h3 style="text-align:center">Location / Notes Search</h3>
     </div>
-    <div
-     class="panel-body">
+    <div class="panel-body">
       <form action="index.php" method="post" id="Search" >
         <div id="search" style="text-align:center">
           <input type="text" style="margin-bottom:10px" class="txt_box" name="search_location" tabindex="2">
@@ -44,17 +43,26 @@ require_once './DAL/PDOConnection.php';
       </form>
     </div>
   </div>
-</div>
-</div>
-</div>
+
+
+
 <?php
 if(isset($_POST['doSearch'])){
 	
 	if($_POST['doSearch']==1)
 		{
+			if ($_POST['search_product'] == ""){ die ('<div class="alert alert-danger" role="alert" style="float:left; width:100%; text-align: center">Oops, it would appear you have not entered a product to searh for!! <br />Please try again!</div>');}else{
 			$productDal = new products;
 			$Search = $_POST['search_product'];
 			$Search = $productDal->search($Search);
+			foreach($Search as $Result){
+				
+				$id = $Result['product'];
+				$p_id = $Result['product_id'];
+			header("location:?action=update_product&id=".$Result['product']."&p_id=".$Result['product_id']);
+			//include 'update_product.php';
+		}
+		}
 		}
 	elseif($_POST['doSearch']==2)
 		{
@@ -67,7 +75,7 @@ if(isset($_POST['doSearch'])){
 
 ?>
 <?php if (!isset($_POST['doSearch']) || $_POST['doSearch']) { ?>
-<div class="panel panel-primary">
+<div class="panel panel-primary" style="width:100%; float:left">
 <div class="panel panel-heading"><h3>Search Results</h3></div>
 <div class="panel-body" style="margin-top:-20px">
 <?php foreach ($Search as $result){ 
@@ -121,8 +129,7 @@ echo '<a href="?action=delete&delete='.$result['id'].'">Delete</a>';?>
 		}
 	
 }
-
 }
 
 ?>
-</p>
+

@@ -1,6 +1,7 @@
 <?php
 
-require_once './DAL/PDOConnection.php';
+//require_once './DAL/PDOConnection.php';
+
 
 $productDal = new products();
 
@@ -14,6 +15,8 @@ if(isset($_POST['add'])){
 		header("location:?action=update_product&id=".$product."&p_id=".$product_id);
 		echo '<div class="alert alert-success" role="alert">Product Successfully updated to Location</div>';	
 }
+
+
 
 if ($_GET['p_id']==''){
 	$id = $_GET['id'];
@@ -42,7 +45,7 @@ foreach($id as $productDetail){
 	$("#location").autocomplete(ac_config);}); 
     </script>
     
- <div class="panel panel-primary" style="width:49%; float:right">
+ <div class="panel panel-primary" style="width:24%; float:right; margin-right:13px">
 <div class="panel-heading" style="text-align:center"><h3>Update Location</h3></div>
 <div class="panel-body">
     <form method="post" id="update_location"
@@ -70,5 +73,7 @@ foreach($id as $productDetail){
       </div>
       <?php }?>
       </div>
-      </div>
      
+     
+	  
+    

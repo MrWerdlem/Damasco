@@ -27,7 +27,7 @@
 			->setBody('<html>'.
                 '<head>Hello<br /><br /></head>'.
                 '<body>'.
-                'Please will you kindly order ' .$_GET['product'] .
+                'Please will you kindly order '.$_GET['quantity']." of " .$_GET['product'] .
                 '<br /><br />Kind Regards<br /><br />'.
                 'PostPack'.
                 '</body>' .

@@ -170,6 +170,24 @@ class products{
 			return $row;
 		}
 	}
+	
+	public function fetchProductbyId($id){
+		$pdo = Database::DB();
+		$stmt = $pdo->prepare('Select *
+			from location
+			where product_id = :stmt
+			order by location ASC');
+		$stmt->bindValue(':stmt', $id);
+		$stmt->execute();
+		if($stmt->rowCount()>0){				
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		else
+		{
+		
+		}
+	}
+	
 	public function GetProductsLocation($id){
 		$pdo = Database::DB();
 		$stmt = $pdo->prepare('select *
@@ -330,7 +348,7 @@ class products{
 			from order_history
 			where product_id
 			like :stmt
-			order by date desc limit 8');
+			order by date desc limit 6');
 			$stmt->bindValue(':stmt', $id);
 			$stmt->execute();
 			if($stmt->rowCount()>0) {
