@@ -55,7 +55,7 @@ if(isset($_POST['update'])){
       </div>
       <br/>
        <button id="update" class="btn btn-large btn-primary" name="update" type="submit">Update</button>
-       <a href="?action=test_send&product=<?php echo $productDetail['product'];?>&id=<?php echo $productDetail['product_id'];?>" class="btn btn-large btn-primary">Order</a>
+       <a href="?action=send&product=<?php echo $productDetail['product'];?>&id=<?php echo $productDetail['product_id'];?>" class="btn btn-large btn-primary">Order</a>
     </form>
   </div>
 <?php }?>
