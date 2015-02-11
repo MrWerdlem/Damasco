@@ -3,7 +3,7 @@
 require_once('./DAL/PDOConnection.php');
 
 $productDal = new products();
-if(isset($_POST['add'])){
+if(isset($_POST['add_location'])){
     //form submitted
     $location = strtoupper ($_POST['location']);
 	
@@ -23,7 +23,7 @@ if(isset($_POST['add'])){
            <span id="locationInfo"></span>    </br>  
              </br>      
             
-        <button class="btn btn-large btn-primary" id="add" name="add" type="submit"/>Add
+        <button class="btn btn-large btn-primary" id="add_location" name="add_location" type="submit"/>Add
  <?php       if (mysql_errno() == 1062) {
     
     print '<div class="alery alert-warning" role="alert">Duplicate Racking Location Entered, Please try Again!</div>';

@@ -55,7 +55,7 @@ class products{
 			$stmt = $pdo->prepare('Select * 
 		from products
 		left join location on location.product_id=products.product_id 
-		where notes like :stmt');
+		where description like :stmt');
 		$stmt->bindValue(':stmt', "%".$Search."%");
 		$stmt->execute();
 		if($stmt->rowCount()>0){
@@ -301,12 +301,12 @@ class products{
 			$stmt->bindValue(2, $notes);
 			$stmt->bindValue(3, $quantity);
 			$stmt->bindValue(4, $description);
-			$stmt->execute();	
-			echo "Product ". $product." Has been added successfully";		
-			}
+			$stmt->execute();
+				
+			echo '<div class="alert alert-success" role="alert">The product '.$product . ' has been sucessfully added!</div>';	}	
+			
 			catch (PDOException $e){
-				echo "<div> <style='line-height: 4.0em; align='center'>
-            	<strong style='color:#00F'>PRODUCT ALREADY EXISTS</strong></div></ br></br>";
+				echo '<div class="alert alert-danger" role="alert">the product '.$product . ' appears to have been entered already</div>';
 			
 				}			
 		}

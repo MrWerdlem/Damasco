@@ -1,6 +1,6 @@
 <?php
 
-//require_once './DAL/PDOConnection.php';
+require_once './DAL/PDOConnection.php';
 
 
 $productDal = new products();

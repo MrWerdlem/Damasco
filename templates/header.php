@@ -17,7 +17,7 @@
   <div class="page-header" style="text-align:center"><img src="./css/images/postpack.png" style="margin-left:0">
   <text style="font-size:24px">Postpack & Damasco Stock Control</text><img src="./css/images/dam.png" style="text-align:right">
 </div>
-<div class="navbar">
+<div class="navbar" style="font-size:16px">
               <div class="navbar-inner">               
                   <ul class="navbar navbar-default">
                   <div class="container-fluid">
@@ -28,8 +28,8 @@
                     <li><a href="?action=aisles&Aisle=2">Aisles</a></li>
                     
                  
-                    <li><a href="?action=location_list&id=41" class="disabled">Stock Control</a></li>
-                    <li><a href="#">Contact</a></li>
+                  <!--  <li><a href="?action=location_list&id=41" class="disabled">Stock Control</a></li>
+                    <li><a href="#">Contact</a></li>-->
                   </ul>
                 </div> 
                 </ul>
