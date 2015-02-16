@@ -117,7 +117,7 @@ if (!$result['location']){
 else
 
 echo '<a href="?action=delete&delete='.$result['id'].'">Delete</a>';?>
-| <a href="?action=test_send&product=<?php echo $result['product'];?>&id=<?php echo $result['product_id'];?>">Order</a>
+| <a href="?action=send&product=<?php echo $result['product'];?>&id=<?php echo $result['product_id'];?>">Order</a>
 <?php if ($result['product']>0){ 
   echo "| <a href='?action=update_product&id=".$result['product']."&p_id=". $result['product_id']."'>Details</a>";}
   
