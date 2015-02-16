@@ -28,8 +28,9 @@
                     <li><a href="?action=aisles&Aisle=2">Aisles</a></li>
                     
                  
-                  <!--  <li><a href="?action=location_list&id=41" class="disabled">Stock Control</a></li>
-                    <li><a href="#">Contact</a></li>-->
+                  <li><a href="?action=production_stock&id=" class="disabled">Production Stock</a></li>
+                    <li><a href="?action=add_production_stock">Add Product / Customer</a></li>
+                    
                   </ul>
                 </div> 
                 </ul>
